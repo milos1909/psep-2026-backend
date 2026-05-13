@@ -12,5 +12,5 @@ export const AppDataSource = new DataSource({
     username: 'root',
     password: 'root',
     database: 'psep_2026',
-    entities: [User,Cinema,TimeTable,InvoiceItem,Invoice]
+    entities: [User, Cinema, TimeTable, InvoiceItem, Invoice]
 })

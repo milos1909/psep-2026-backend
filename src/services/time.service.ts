@@ -6,32 +6,32 @@ import { MovieService } from "./movie.service"
 const repo = AppDataSource.getRepository(TimeTable)
 
 export class TimeTableService {
-    static async getAvailableMovies(){
+    static async getAvailableMovies() {
         const data = await repo.find({
             select: {
                 timeTableId: true,
                 movieId: true
             },
-            where: {    
+            where: {
                 deletedAt: IsNull(),
                 cinema: {
                     deletedAt: IsNull()
                 }
             }
-    })
+        })
+
         const arr = data.map(obj => obj.movieId)
         const unique = [... new Set(arr)]
         const movies = await MovieService.getMoviesByIds(unique)
 
         return movies.data
-
     }
 
-    static async getMovieDetails(id: number){
+    static async getMovieDetails(id: number) {
         const rsp = await MovieService.getMovieById(id)
 
-        if(rsp.status != 200)
-            throw new Error("NOT_FOUND")
+        if (rsp.status != 200)
+            throw new Error('NOT_FOUND')
 
         const data = await repo.find({
             select: {

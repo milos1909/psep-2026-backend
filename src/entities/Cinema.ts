@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn, type Relation } from "typeorm";
 import { TimeTable } from "./TimeTable";
 
 @Entity("cinema", { schema: "psep_2026" })
@@ -9,15 +9,14 @@ export class Cinema {
   @Column("varchar", { name: "name", length: 255 })
   name: string;
 
-  @Column("varchar", { name: "address", length: 45 })
+  @Column("varchar", { name: "address", length: 255 })
   address: string;
 
   @Column("datetime", {
     name: "created_at",
-    nullable: true,
     default: () => "CURRENT_TIMESTAMP",
   })
-  createdAt: Date | null;
+  createdAt: Date;
 
   @Column("datetime", { name: "updated_at", nullable: true })
   updatedAt: Date | null;

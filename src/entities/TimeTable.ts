@@ -6,6 +6,7 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
+  type Relation,
 } from "typeorm";
 import { InvoiceItem } from "./InvoiceItem";
 import { Cinema } from "./Cinema";

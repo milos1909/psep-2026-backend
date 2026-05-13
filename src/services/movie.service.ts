@@ -4,26 +4,27 @@ const client = axios.create({
     baseURL: 'https://movie.pequla.com/api',
     headers: {
         'Accept': 'application/json',
-        'X-Name': 'PSEP_2026',
+        'X-Name': 'PSEP_2026'
     },
     validateStatus: (status) => {
-        return status == 200
+        return status === 200
     }
 })
 
 export class MovieService {
-    static async getMoviesByIds(ids: number[]){
+    static async getMoviesByIds(ids: number[]) {
         return await client.request({
-            url: "/movie/list",
-            method: "POST",
+            url: '/movie/list',
+            method: 'POST',
             data: ids
         })
     }
 
-    static async getMovieById(id: number){
+    static async getMovieById(id: number) {
         return await client.request({
-            url: `movie/${id}`,
+            url: `/movie/${id}`,
             method: 'GET'
         })
     }
 }
+

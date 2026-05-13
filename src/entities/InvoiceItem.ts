@@ -5,6 +5,7 @@ import {
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
+  type Relation,
 } from "typeorm";
 import { Invoice } from "./Invoice";
 import { TimeTable } from "./TimeTable";

@@ -6,6 +6,7 @@ import {
   ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
+  type Relation,
 } from "typeorm";
 import { User } from "./User";
 import { InvoiceItem } from "./InvoiceItem";
@@ -39,7 +40,7 @@ export class Invoice {
     onUpdate: "CASCADE",
   })
   @JoinColumn([{ name: "user_id", referencedColumnName: "userId" }])
-  user: User;
+  user: Relation<User>;
 
   @OneToMany(() => InvoiceItem, (invoiceItem) => invoiceItem.invoice)
   invoiceItems: InvoiceItem[];

@@ -16,8 +16,8 @@ export class User {
   @Column("varchar", { name: "first_name", length: 255 })
   firstName: string;
 
-  @Column("varchar", { name: "last_name", nullable: true, length: 255 })
-  lastName: string | null;
+  @Column("varchar", { name: "last_name", length: 255 })
+  lastName: string;
 
   @Column("enum", { name: "gender", enum: ["m", "f"] })
   gender: "m" | "f";
@@ -28,8 +28,8 @@ export class User {
   @Column("varchar", { name: "password", length: 255 })
   password: string;
 
-  @Column("varchar", { name: "email_code", nullable: true, length: 45 })
-  emailCode: string | null;
+  @Column("int", { name: "email_code", nullable: true })
+  emailCode: number | null;
 
   @Column("datetime", {
     name: "created_at",
@@ -37,8 +37,8 @@ export class User {
   })
   createdAt: Date;
 
-  @Column("datetime", { name: "verify_at", nullable: true })
-  verifyAt: Date | null;
+  @Column("datetime", { name: "verified_at", nullable: true })
+  verifiedAt: Date | null;
 
   @Column("datetime", { name: "deleted_at", nullable: true })
   deletedAt: Date | null;
